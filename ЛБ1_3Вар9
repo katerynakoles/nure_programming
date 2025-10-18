@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+#include <clocale>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Ukrainian");
+    
+    const char* MONTHS[12] = {
+        "січень", "лютий", "березень", "квітень", "травень", "червень",
+        "липень", "серпень", "вересень", "жовтень", "листопад", "грудень"
+    };
+    
+    int current_num = 0; 
+    int k = 0;           
+    cout << "Month (1-12): ";
+    cin >> current_num;
+    if (current_num < 1 || current_num > 12) {
+        cout << "Error" << endl;
+        return 1;
+    }
+    cout << "K: ";
+    cin >> k;
+    int new_index = ((current_num - 1 + k) % 12 + 12) % 12;
+    cout << "Result: " << (new_index + 1) << endl;
+    return 0;
+}
